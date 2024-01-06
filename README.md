@@ -1,1 +1,1 @@
-# Traducao-Subtitles-generator-along-with-automatic-translation-
+# Traducao-Subtitles-generator-along-with-automatic-translation
