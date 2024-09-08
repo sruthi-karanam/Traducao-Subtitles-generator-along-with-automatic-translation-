@@ -1,156 +1,135 @@
 # **Traducao - Automatic Subtitle Generator**
 
-**Traducao** is a multifunctional media conversion website that provides subtitle generation, offline video translation, and text-to-speech (TTS) services. Primarily leveraged for subtitle translation on YouTube, it helps content creators automatically generate subtitles and translate them into multiple languages, enhancing accessibility for diverse audiences.
+Traducao is a web-based tool designed for automatic subtitle generation and translation. The application leverages various APIs and technologies to provide a comprehensive suite of functionalities for handling video and audio content. 
 
----
+## **Features**
 
-## **Table of Contents**
+- **YouTube Transcript Translation**: Automatically generates and translates transcripts from YouTube videos.
+- **YouTube Video Downloader**: Downloads YouTube videos for offline access.
+- **YouTube Audio Extractor**: Extracts audio from YouTube videos.
+- **Offline Video Translation**: Translates audio from offline video files.
+- **Audio File Translation**: Translates audio files to text.
+- **Text to Speech**: Converts text input to spoken audio.
+- **Speech to Text**: Converts spoken audio into text.
 
-- [About the Project](#about-the-project)
-- [Key Features](#key-features)
-- [Tech Stack](#tech-stack)
-- [Project Setup](#project-setup)
-- [Usage](#usage)
-- [File Structure](#file-structure)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+## **Installation**
 
----
+### **Prerequisites**
 
-## **About the Project**
+Make sure you have the following installed:
 
-Traducao helps users generate and translate subtitles for YouTube videos and other multimedia files. By integrating Google's translation services and speech recognition, it ensures high accuracy in both audio extraction and translation. The platform is designed to attract 1,000+ users in its first year and handle up to 500 video and 1,500 audio file conversions annually.
-
-### **Use Case**
-The platform mainly targets content creators on YouTube, allowing them to automatically generate and translate subtitles, expanding their audience reach to non-native speakers.
-
----
-
-## **Key Features**
-
-- **Automatic Subtitle Generation:** Fetches subtitles from YouTube videos and generates them automatically using speech-to-text services.
-- **Offline Video Translator:** Supports subtitle translation in multiple languages for locally uploaded videos.
-- **Text-to-Speech Services:** Converts text into speech, enabling users to download audio files.
-- **Audio Extraction:** Extracts and converts audio from video files to various formats.
-- **YouTube Integration:** Fetches subtitles and audio directly from YouTube links for easy conversion and translation.
-
----
-
-## **Tech Stack**
-
-### **Frontend:**
-- JavaScript
-- HTML5
-- CSS
-- Bootstrap
-
-### **Backend:**
+- Python 3.x
 - Flask
-- Python (with gTTS, Pyttsx3, MoviePy, SpeechRecognition libraries)
+- Required Python libraries
 
-### **APIs & Libraries:**
-- Google Translator API (language translation)
-- YouTube Transcript API (fetching subtitles)
-- Pytube (downloading YouTube videos)
+### **Clone the Repository**
 
-### **Database:**
-- SQLite (storing user data and media conversion logs)
+```bash
+git clone https://github.com/your-repository-url.git
+cd your-repository-directory
+```
 
----
+### **Create a Virtual Environment**
 
-## **Project Setup**
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+```
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-username/Traducao.git
-   cd Traducao
-   ```
+### **Install Dependencies**
 
-2. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+Create a `requirements.txt` file with the following content:
 
-3. **Run the Flask app:**
-   ```bash
-   python app.py
-   ```
+```
+Flask
+gtts
+playsound
+pyttsx3
+moviepy
+youtube_transcript_api
+speech_recognition
+pytube
+googletrans==4.0.0-rc1
+```
 
-4. **Access the app on your browser:**
-   Open `http://localhost:5000` in your web browser.
+Install the dependencies:
 
----
+```bash
+pip install -r requirements.txt
+```
 
 ## **Usage**
 
-1. **Home Page:** Provides links to various tools such as video/audio translation and subtitle generation.
-2. **Subtitle Generation:** Enter a YouTube video URL to generate subtitles and translate them.
-3. **Audio Extraction:** Extract audio from YouTube videos or upload local video files to extract and convert audio.
-4. **Offline Video Translator:** Translate audio in video files into various languages using Google Translate.
-5. **Text-to-Speech:** Enter text, select a language, and convert it into spoken audio, which can be downloaded as a file.
+### **Running the Application**
 
----
+Start the Flask server:
 
-## **File Structure**
-
-```plaintext
-Traducao/
-│
-├── templates/             # HTML templates
-│   ├── homepagemain.html
-│   ├── tool1.html
-│   ├── tool2.html
-│   ├── tool3.html
-│   ├── tool4.html
-│   ├── tool5.html
-│   ├── contact.html
-│   ├── about_us.html
-│   └── ...                # Other templates
-│
-├── static/                # Static files (CSS, JavaScript, Images)
-│
-├── app.py                 # Main Flask application
-│
-├── requirements.txt       # Required libraries
-│
-└── README.md              # Project documentation (this file)
+```bash
+python app.py
 ```
 
----
+Access the application in your web browser at `http://localhost/`.
 
-## **Contributing**
+### **Endpoints**
 
-We welcome contributions to enhance the functionality of Traducao. Here's how you can contribute:
+- **Home**: `/` - Displays the main page.
+- **YouTube Transcript Translation**: `/ltt` - Extracts and translates transcripts from YouTube videos.
+- **YouTube Video Downloader**: `/yvd` - Downloads videos from YouTube.
+- **YouTube Audio Extractor**: `/ae` - Extracts audio from YouTube videos.
+- **Offline Video Translation**: `/ovt` - Translates audio from offline videos.
+- **Audio File Translation**: `/aft` - Converts audio files to text.
+- **Text to Speech**: `/tts` - Converts text to speech.
+- **Speech to Text**: `/att` - Converts speech to text.
+- **Contact Us**: `/contact_us` - Contact form for user inquiries.
+- **About Us**: `/abs` - Information about the project.
 
-1. Fork the repository.
-2. Create a new branch:
+### **Example Usage**
+
+1. **Translate YouTube Transcript**:
+   - Navigate to `/ltt`.
+   - Enter the YouTube video link and select the target language.
+   - Submit to get the translated transcript.
+
+2. **Download YouTube Video**:
+   - Go to `/yvd`.
+   - Provide the YouTube video URL and download the video.
+
+3. **Convert Text to Speech**:
+   - Visit `/tts`.
+   - Input the text and submit to generate the speech output.
+
+## **Development**
+
+To contribute to this project:
+
+1. **Fork the Repository**.
+2. **Create a New Branch**:
    ```bash
-   git checkout -b feature/YourFeature
+   git checkout -b feature-branch
    ```
-3. Make your changes and commit them:
+3. **Commit Your Changes**:
    ```bash
-   git commit -m "Added new feature"
+   git commit -am 'Add new feature'
    ```
-4. Push to the branch:
+4. **Push to the Branch**:
    ```bash
-   git push origin feature/YourFeature
+   git push origin feature-branch
    ```
-5. Open a pull request.
-
----
+5. **Create a New Pull Request**.
 
 ## **License**
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
----
+## **Acknowledgments**
 
-## **Contact**
-
-- **Email:** karanamsruthi17@gmail.com
-- **GitHub:** [sruthi-karanam](https://github.com/sruthi-karanam)
-- **LinkedIn:** [Sruthi Karanam](https://www.linkedin.com/in/karanam-sruthi-a08412255/)
+- [Flask](https://flask.palletsprojects.com/) for the web framework.
+- [gTTS](https://gtts.readthedocs.io/en/latest/) and [pyttsx3](https://pyttsx3.readthedocs.io/en/latest/) for text-to-speech conversion.
+- [MoviePy](https://zulko.github.io/moviepy/) for video and audio processing.
+- [YouTube Transcript API](https://github.com/jdepoix/youtube-transcript-api) for transcript extraction.
+- [Speech Recognition](https://pypi.org/project/SpeechRecognition/) for speech-to-text.
+- [Pytube](https://pytube.io/) for YouTube video downloading.
+- [Google Translate](https://pypi.org/project/googletrans/) for language translation.
 
 ---
 
