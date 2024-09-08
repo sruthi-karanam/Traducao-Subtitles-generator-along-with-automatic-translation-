@@ -40,7 +40,7 @@ The platform mainly targets content creators on YouTube, allowing them to automa
 ## **Tech Stack**
 
 ### **Frontend:**
-- React.js
+- JavaScript
 - HTML5
 - CSS
 - Bootstrap
